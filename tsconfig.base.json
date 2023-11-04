@@ -14,7 +14,14 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@star-wars-fe/model": ["libs/shared/data-model/index.ts"],
+      "@star-wars-fe/people-data-access": [
+        "libs/people/data-access/src/index.ts"
+      ],
+      "@star-wars-fe/people-list": ["libs/people/list/src/index.ts"],
+      "@star-wars-fe/people-shell": ["libs/people/shell/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

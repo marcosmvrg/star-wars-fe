@@ -3,6 +3,7 @@
   "affected": {
     "defaultBase": "master"
   },
+  "defaultProject": "star-wars-fe",
   "targetDefaults": {
     "build": {
       "cache": true,
