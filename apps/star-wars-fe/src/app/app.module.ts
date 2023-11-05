@@ -12,6 +12,22 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
+import { ActionReducerMap, StoreModule } from '@ngrx/store';
+import {
+  RouterState,
+  StoreRouterConnectingModule,
+  routerReducer,
+} from '@ngrx/router-store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { EffectsModule } from '@ngrx/effects';
+
+export interface AppState {
+  [key: string]: unknown;
+}
+
+export const reducers: ActionReducerMap<AppState> = {
+  router: routerReducer,
+};
 
 export const appRoutes: Route[] = [
   {
@@ -33,6 +49,23 @@ export const appRoutes: Route[] = [
     MatSidenavModule,
     MatIconModule,
     MatListModule,
+    EffectsModule.forRoot([]),
+    StoreModule.forRoot(reducers, {
+      runtimeChecks: {
+        strictStateImmutability: true,
+        strictActionImmutability: true,
+        strictActionSerializability: true,
+        strictStateSerializability: true,
+      },
+    }),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25,
+      trace: true,
+    }),
+    StoreRouterConnectingModule.forRoot({
+      stateKey: 'router',
+      routerState: RouterState.Minimal,
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,5 +1,5 @@
 {
-  "name": "data-access",
+  "name": "people-data-access",
   "$schema": "../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/people/data-access/src",
   "prefix": "star-wars-fe",
