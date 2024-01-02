@@ -1,4 +1,7 @@
 <ng-container *ngIf="peopleList$ | async as vm">
-  <sw-people-list-table [results]="vm.peopleList.results">
+  <sw-people-list-table
+    [results]="vm.peopleList.results"
+    (view)="onView($event)"
+  >
   </sw-people-list-table>
 </ng-container>

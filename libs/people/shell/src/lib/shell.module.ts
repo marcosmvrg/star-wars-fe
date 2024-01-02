@@ -14,6 +14,11 @@ export const shellRoutes: Route[] = [
         loadChildren: () =>
           import('@star-wars-fe/people-list').then((m) => m.PeopleListModule),
       },
+      {
+        path: 'view',
+        loadChildren: () =>
+          import('@star-wars-fe/people-view').then((m) => m.PeopleViewModule),
+      },
     ],
   },
 ];

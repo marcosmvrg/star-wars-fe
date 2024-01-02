@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { selectStarWarsPeopleList } from '@star-wars-fe/people-data-access';
 
@@ -10,5 +11,16 @@ import { selectStarWarsPeopleList } from '@star-wars-fe/people-data-access';
 export class PeopleListContainerComponent {
   readonly peopleList$ = this.store.select(selectStarWarsPeopleList);
 
-  constructor(private store: Store) {}
+  constructor(
+    private store: Store,
+    private router: Router,
+    private activatedRoute: ActivatedRoute
+  ) {}
+
+  onView($event: string) {
+    return this.router.navigate(['view'], {
+      relativeTo: this.activatedRoute,
+      state: { personUrl: $event },
+    });
+  }
 }

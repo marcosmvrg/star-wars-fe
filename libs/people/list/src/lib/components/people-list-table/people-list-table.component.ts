@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { People } from '@star-wars-fe/shared-model';
 
 @Component({
@@ -21,4 +21,5 @@ export class PeopleListTableComponent {
   ];
 
   @Input() results: People[] = [];
+  @Output() view = new EventEmitter<string>();
 }

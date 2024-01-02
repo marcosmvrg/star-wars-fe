@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { PeopleList } from '@star-wars-fe/shared-model';
+import { People, PeopleList } from '@star-wars-fe/shared-model';
 import { Observable } from 'rxjs';
 import { environment } from '@env';
 
@@ -12,5 +12,9 @@ export class StarWarsPeopleApiService {
 
   list(): Observable<PeopleList> {
     return this.httpClient.get<PeopleList>(`${this.baseUrl}/people`);
+  }
+
+  get(personUrl: string): Observable<People> {
+    return this.httpClient.get<People>(`${personUrl}`);
   }
 }
